@@ -1,0 +1,369 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200  - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0; }
+
+html {
+  font-family: "Quicksand", sans-serif;
+  background-color: #fbdcc4;
+  background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
+  font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+h1, h2, h3 {
+  font-family: "Lora", sans-serif;
+  text-transform: uppercase; }
+
+header > h1 {
+  text-align: center;
+  padding-top: 2.5rem;
+  color: #31112c;
+  font-size: 3rem; }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 5vh 10vw;
+  margin: 0; }
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  margin: 0; }
+
+.search-icon {
+  position: absolute;
+  top: 0.4rem;
+  left: 19rem;
+  width: 1.4rem;
+  z-index: 1;
+  color: #31112c;
+  font-size: 1.4rem; }
+
+.search {
+  position: absolute;
+  left: 1rem;
+  border-bottom: 0.1rem solid #a5a4a4;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  height: 2.5rem;
+  width: 20rem;
+  padding: 0.2rem 2.3rem 0.2rem 3rem;
+  outline: none;
+  background-color: #fbdcc4; }
+
+.navbar {
+  font-family: "Lora", sans-serif;
+  text-transform: uppercase;
+  display: flex; }
+  .navbar li {
+    list-style: none; }
+    .navbar li > a {
+      text-decoration: none;
+      color: #7d0633;
+      font-size: 1.9rem; }
+
+.shop-button-wrapper {
+  position: relative; }
+
+.fas.fa-shopping-cart {
+  color: #31112c;
+  font-size: 1.5rem; }
+
+.fas.fa-shopping-cart:hover {
+  cursor: pointer; }
+
+.cart-button {
+  outline: none;
+  border: none;
+  background-color: #fbdcc4; }
+
+.cart-button + span {
+  position: absolute;
+  top: -2rem;
+  right: 0.2rem;
+  font-size: 1.5rem; }
+
+.nav-wrapper {
+  margin: 3vh 10vw 8vh;
+  border-bottom: 0.1rem solid #8d0b3d; }
+
+.listOfProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  width: 100%;
+  column-gap: 1.5rem;
+  row-gap: 2rem;
+  padding: 5vh 10vw; }
+
+.product {
+  background-color: #f0bfa9;
+  margin: 0;
+  display: grid;
+  position: relative;
+  padding: 0.3rem; }
+
+.product::before {
+  content: "";
+  padding-bottom: 100%;
+  display: block; }
+
+.product > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  max-width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto; }
+
+.product::before,
+.product > img {
+  grid-area: 1 / 1 / 2 / 2; }
+
+.product > h2 {
+  font-size: 1.6rem;
+  color: #31112c;
+  margin-top: 0.5rem;
+  font-weight: normal; }
+
+.product > p {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem; }
+
+.addItem {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #9b1b4c;
+  color: #f2a07b;
+  border: none;
+  font-size: 1.6rem;
+  font-weight: bold; }
+
+.addItem:active {
+  background-color: #31112c;
+  transition-duration: 0.2s; }
+
+.addItem:hover {
+  cursor: pointer; }
+
+.plus,
+.minus {
+  outline: none;
+  border: none;
+  background-color: white;
+  padding: 0.4rem; }
+
+.cart {
+  position: absolute;
+  width: max-content;
+  background-color: #491c42;
+  right: 2rem;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  color: #f2a07b;
+  z-index: 10; }
+
+.cart > div {
+  margin: 0.5rem;
+  font-size: 1.5rem; }
+
+.cartItem {
+  font-size: 1.5rem;
+  border-bottom: 0.1rem solid #cec9c9;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 0.5rem;
+  margin-top: 1rem; }
+
+.cartItem div {
+  padding: 0.2rem 1rem; }
+
+.cartItem :nth-child(2) > img {
+  width: 5rem;
+  height: 5rem; }
+
+.fas.fa-plus,
+.fas.fa-minus {
+  color: #9b1b4c; }
+
+.cartItemProps > button {
+  background-color: #31112c;
+  margin-top: 0.5rem; }
+
+.about {
+  text-align: center;
+  padding: 1rem 3rem; }
+
+.about > h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #31112c; }
+
+.about > img {
+  width: 50rem;
+  height: 25rem;
+  margin: 2rem auto; }
+
+.aboutStory {
+  font-size: 1.7rem;
+  width: 70%; }
+
+.aboutStory > p:nth-child(1) {
+  font-weight: bold; }
+
+.shop-cart-wrapper {
+  position: relative;
+  margin: 0; }
+
+.shop-cart-wrapper > span {
+  position: absolute;
+  bottom: 1rem; }
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 70%; }
+
+.contact h3 {
+  font-size: 1.8rem;
+  color: #31112c;
+  margin-bottom: 2rem; }
+
+.contact p {
+  font-size: 1.6rem; }
+
+.contactIcons {
+  display: flex;
+  flex-direction: row;
+  list-style: none; }
+
+.contactIcons i {
+  color: #7d0633;
+  font-size: 3rem;
+  margin-right: 2rem; }
+
+.contactIcons i:hover {
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transform: scale(1.3); }
+
+.contact p:nth-of-type(3) {
+  margin-bottom: 1rem; }
+
+.sliderWrapper {
+  width: 80%;
+  background-color: #f0bfa9;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative; }
+
+.sliderWrapper > div:first-child {
+  background-color: #7d0633;
+  color: #f2a07b;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  position: absolute;
+  text-align: center; }
+  @media (max-width: 56.25em) {
+    .sliderWrapper > div:first-child {
+      position: initial;
+      width: 100%;
+      padding: 0.1rem; } }
+
+.slider {
+  position: relative;
+  height: 35rem;
+  width: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  @media (max-width: 75em) {
+    .slider {
+      margin-left: 30%; } }
+  @media (max-width: 56.25em) {
+    .slider {
+      margin: 0 auto; } }
+
+.sliderImage {
+  width: 30rem;
+  height: 30rem;
+  margin: 0 auto; }
+
+.right-arrow, .left-arrow {
+  position: absolute;
+  font-size: 3rem;
+  color: #7d0633;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none; }
+
+.right-arrow {
+  top: calc(50%-1.5rem);
+  right: -5rem; }
+
+.left-arrow {
+  top: calc(50%-1.5rem);
+  left: -5rem; }
+
+.section > h2 {
+  padding: 2rem 1rem; }
+
+.imageBox {
+  width: 80%;
+  height: 40rem;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  background-color: #7d0633;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  margin-top: 2rem; }
+
+.imageBox > img {
+  height: 40rem;
+  width: 60rem; }
+  @media (max-width: 56.25em) {
+    .imageBox > img {
+      height: 40rem;
+      width: 100%;
+      object-fit: cover; } }
+
+.imageBox > h2 {
+  background-color: #f0bfa9;
+  position: absolute;
+  bottom: 0rem;
+  left: calc(50% - 17.5rem);
+  line-height: 6.4rem;
+  width: 35rem;
+  font-size: 2rem;
+  font-weight: normal; }
